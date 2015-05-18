@@ -12,7 +12,7 @@ RSpec.feature 'New comment', :type => :feature do
    visit new_video_comment_path(video)
      fill_in "comment[content]", :with => "test content"
      click_button "Submit"
-     visit video_json_path(video)
+     visit video_path(video, :format => :json)
      expect(page).to have_text('test content')
   end
 
